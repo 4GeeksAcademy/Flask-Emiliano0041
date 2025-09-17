@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Predicción</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado de la Predicción</h1>
+        
+        <div class="result-container">
+            {% if prediction == 1 %}
+                <div class="result-positive">
+                    <h2>⚠️ Riesgo Detectado</h2>
+                    <p>El modelo indica un <strong>riesgo elevado</strong> de cáncer de hígado.</p>
+                    <p><strong>Probabilidad: {{ probability_cancer }}%</strong></p>
+                    <div class="recommendation">
+                        <h3>Recomendación:</h3>
+                        <p>Se recomienda <strong>consultar inmediatamente</strong> con un especialista en hepatología u oncología para realizar estudios adicionales.</p>
+                    </div>
+                </div>
+            {% else %}
+                <div class="result-negative">
+                    <h2>✅ Bajo Riesgo</h2>
+                    <p>El modelo indica un <strong>bajo riesgo</strong> de cáncer de hígado.</p>
+                    <p><strong>Probabilidad de no tener cáncer: {{ probability_no_cancer }}%</strong></p>
+                    <div class="recommendation">
+                        <h3>Recomendación:</h3>
+                        <p>Mantener controles médicos regulares y hábitos de vida saludables.</p>
+                    </div>
+                </div>
+            {% endif %}
+            
+            <div class="probabilities">
+                <h3>Probabilidades detalladas:</h3>
+                <div class="prob-bar">
+                    <div class="prob-label">No cáncer: {{ probability_no_cancer }}%</div>
+                    <div class="prob-visual">
+                        <div class="prob-fill-no" style="width: {{ probability_no_cancer }}%"></div>
+                    </div>
+                </div>
+                <div class="prob-bar">
+                    <div class="prob-label">Cáncer: {{ probability_cancer }}%</div>
+                    <div class="prob-visual">
+                        <div class="prob-fill-yes" style="width: {{ probability_cancer }}%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="disclaimer">
+                <p><strong>Importante:</strong> Este es un modelo predictivo con fines educativos. No sustituye el diagnóstico médico profesional. Siempre consulte con un médico especialista.</p>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <a href="/" class="btn-back">Nueva Predicción</a>
+        </div>
+    </div>
+</body>
+</html>
