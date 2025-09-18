@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictor de Cáncer de Hígado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Predictor de Cáncer de Hígado</h1>
+        <p>Ingrese los datos del paciente para realizar la predicción</p>
+        
+        {% if error %}
+        <div class="error">Error: {{ error }}</div>
+        {% endif %}
+        
+        <form method="POST" action="/predict">
+            <div class="form-group">
+                <label for="age">Edad:</label>
+                <input type="number" id="age" name="age" min="0" max="120" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="gender">Género:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="Male">Masculino</option>
+                    <option value="Female">Femenino</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="bmi">IMC (BMI):</label>
+                <input type="number" id="bmi" name="bmi" step="0.1" min="10" max="50" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="alcohol_consumption">Consumo de Alcohol:</label>
+                <select id="alcohol_consumption" name="alcohol_consumption" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="None">Ninguno</option>
+                    <option value="Light">Ligero</option>
+                    <option value="Moderate">Moderado</option>
+                    <option value="Heavy">Intenso</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="smoking_status">Estado de Fumador:</label>
+                <select id="smoking_status" name="smoking_status" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="Never">Nunca</option>
+                    <option value="Former">Ex fumador</option>
+                    <option value="Current">Fumador actual</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="hepatitis_b">Hepatitis B:</label>
+                <select id="hepatitis_b" name="hepatitis_b" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="hepatitis_c">Hepatitis C:</label>
+                <select id="hepatitis_c" name="hepatitis_c" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="liver_function_score">Puntuación Función Hepática:</label>
+                <input type="number" id="liver_function_score" name="liver_function_score" step="0.1" min="0" max="100" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="alpha_fetoprotein_level">Nivel Alpha Fetoproteína:</label>
+                <input type="number" id="alpha_fetoprotein_level" name="alpha_fetoprotein_level" step="0.1" min="0" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="cirrhosis_history">Historia de Cirrosis:</label>
+                <select id="cirrhosis_history" name="cirrhosis_history" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="family_history_cancer">Historia Familiar de Cáncer:</label>
+                <select id="family_history_cancer" name="family_history_cancer" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="physical_activity_level">Nivel de Actividad Física:</label>
+                <select id="physical_activity_level" name="physical_activity_level" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="Low">Bajo</option>
+                    <option value="Moderate">Moderado</option>
+                    <option value="High">Alto</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="diabetes">Diabetes:</label>
+                <select id="diabetes" name="diabetes" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="0">No</option>
+                    <option value="1">Sí</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn-predict">Realizar Predicción</button>
+        </form>
+    </div>
+</body>
+</html>

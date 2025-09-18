@@ -38,16 +38,26 @@
                 <div class="prob-bar">
                     <div class="prob-label">No cáncer: {{ probability_no_cancer }}%</div>
                     <div class="prob-visual">
-                        <div class="prob-fill-no" style="width: {{ probability_no_cancer }}%"></div>
+                        <div class="prob-fill-no" data-width="{{ probability_no_cancer }}"></div>
                     </div>
                 </div>
                 <div class="prob-bar">
                     <div class="prob-label">Cáncer: {{ probability_cancer }}%</div>
                     <div class="prob-visual">
-                        <div class="prob-fill-yes" style="width: {{ probability_cancer }}%"></div>
+                        <div class="prob-fill-yes" data-width="{{ probability_cancer }}"></div>
                     </div>
                 </div>
             </div>
+            
+            <script>
+                // Aplicar estilos dinámicos con JavaScript
+                document.querySelectorAll('.prob-fill-no').forEach(el => {
+                    el.style.width = el.dataset.width + '%';
+                });
+                document.querySelectorAll('.prob-fill-yes').forEach(el => {
+                    el.style.width = el.dataset.width + '%';
+                });
+            </script>
             
             <div class="disclaimer">
                 <p><strong>Importante:</strong> Este es un modelo predictivo con fines educativos. No sustituye el diagnóstico médico profesional. Siempre consulte con un médico especialista.</p>

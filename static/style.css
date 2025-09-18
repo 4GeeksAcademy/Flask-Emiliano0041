@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+h1 + p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn-predict {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.btn-predict:hover {
+    transform: translateY(-2px);
+}
+
+.error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-left: 4px solid #c62828;
+}
+
+/* Estilos para resultados */
+.result-container {
+    text-align: center;
+}
+
+.result-positive {
+    background: #ffebee;
+    border: 2px solid #f44336;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.result-negative {
+    background: #e8f5e8;
+    border: 2px solid #4caf50;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.result-positive h2 {
+    color: #c62828;
+    margin-bottom: 15px;
+}
+
+.result-negative h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.recommendation {
+    background: rgba(255,255,255,0.7);
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.probabilities {
+    margin: 30px 0;
+    text-align: left;
+}
+
+.prob-bar {
+    margin: 15px 0;
+}
+
+.prob-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.prob-visual {
+    background: #f0f0f0;
+    height: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.prob-fill-no {
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50, #66bb6a);
+    border-radius: 12px;
+    transition: width 0.5s ease;
+}
+
+.prob-fill-yes {
+    height: 100%;
+    background: linear-gradient(90deg, #f44336, #ef5350);
+    border-radius: 12px;
+    transition: width 0.5s ease;
+}
+
+.disclaimer {
+    background: #fff3e0;
+    border: 1px solid #ff9800;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-back {
+    background: #333;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.btn-back:hover {
+    background: #555;
+}
