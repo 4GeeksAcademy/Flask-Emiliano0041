@@ -42,8 +42,7 @@ def predict():
         # Codificar variables categóricas
         categorical_cols = ['gender', 'alcohol_consumption', 'smoking_status', 'physical_activity_level']
         for col in categorical_cols:
-            if col in encoders:
-                df[col] = encoders[col].transform([data[col]])[0]
+            df[col] = encoders[col].transform([data[col]])[0]
         
         # Realizar predicción
         prediction = model.predict(df)[0]
